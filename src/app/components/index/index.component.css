@@ -1,0 +1,98 @@
+.cabecera{
+
+    height: 2.8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+}
+
+.navbar-nav-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    margin-top: 0;
+    margin-left: 2rem;
+}
+
+@media (max-width: 430px) {
+    .navbar-nav-link h2 {
+        width: 10rem;
+        font-size: 1rem;
+        margin-left: -1rem;
+    }
+    .navbar-right-links{
+        font-size: 0.75rem;
+    }
+} 
+
+.boton {
+    margin-top: 5rem;
+}
+
+.paypal{
+    margin-top: 6rem;
+}
+
+.form-register {
+    width: 400px;
+    background: #f4f6f7;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: black;
+    box-shadow: 1px 2px 10px #000;
+  }
+  
+  .form-register h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    width: 100%;
+    background: #e5e7e9;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+  }
+  
+  .form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+  }
+  
+  .form-register a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .form-register a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .form-register .botons {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }

@@ -1,0 +1,25 @@
+<header class="cabecera">
+    <nav class="navbar-nav">
+        <a routerLink="/" class="navbar-nav-link">
+            <h2>Pagos</h2>
+        </a>
+
+    </nav>
+</header>
+
+<body>
+    <section class="form-register">
+        <h4>Consulta de pago</h4>
+        <input class="controls" type="text" name="clave" id="nombres" placeholder="Clave catrastal">
+        <input class="controls" type="text" name="nombre" id="apellidos"
+            placeholder="Ingresa 4 letras del Nombre del Propietario">
+        <input class="botons" type="submit" value="Consultar">
+    </section>
+</body>
+<!-- Botón que activa el contenido de PayPal -->
+<button class="boton">Mostrar PayPal</button>
+
+<!-- Mostrar div PayPal solo cuando 'showPaypal' sea true -->
+<div class="paypal">
+    <div #paypal></div>
+</div>

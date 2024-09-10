@@ -4,8 +4,10 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [
-      "node"
-    ]
+      "node",
+      "@angular/localize"
+    ],
+    "typeRoots": ["node_modules/@types", "src"]
   },
   "files": [
     "src/main.ts",
