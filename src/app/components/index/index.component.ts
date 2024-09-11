@@ -12,6 +12,7 @@ import { PaypalService } from '../../services/paypal.service';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule para usar ngModel
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-index',
@@ -129,7 +130,16 @@ export class IndexComponent implements OnInit, AfterViewInit {
         },
         onApprove: (data: any, actions: any) => {
           return actions.order.capture().then((details: any) => {
-            alert('Transaction completed by ' + details.payer.name.given_name);
+            Swal.fire({
+              title: 'Pago realizado con éxito!',
+              text: 'Tu transacción ha sido completada.',
+              icon: 'success',
+            });
+
+            // Reiniciar al primer paso
+            this.ngZone.run(() => {
+              this.currentStep = 0; // Regresar al paso inicial
+            });
           });
         },
       });
