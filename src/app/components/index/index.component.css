@@ -67,7 +67,7 @@
     border: 1px solid #1f53c5;
     font-family: 'calibri';
     font-size: 18px;
-    color: white;
+    color: black;
   }
   
   .form-register p {
@@ -96,3 +96,48 @@
     margin: 16px 0;
     font-size: 16px;
   }
+
+
+  .stepper-container {
+    width: 80%;
+    margin: 40px auto;
+  }
+  
+  .stepper-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .step-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .active {
+    background-color: #007bff;
+  }
+  
+  .stepper-steps {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .step-content {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .paypal
+  {
+    align-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  

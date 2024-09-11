@@ -1,25 +1,72 @@
-<header class="cabecera">
-    <nav class="navbar-nav">
-        <a routerLink="/" class="navbar-nav-link">
-            <h2>Pagos</h2>
-        </a>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" (click)="navigate()">Pagos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" type="button" aria-current="page" (click)="navigate()">Inicio</a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-    </nav>
-</header>
+<div class="stepper-container">
+    <div class="stepper-header">
+        <span *ngFor="let i of stepsArray" class="step-dot" [ngClass]="{'active': isCurrentStep(i)}"></span>
+    </div>
 
-<body>
-    <section class="form-register">
-        <h4>Consulta de pago</h4>
-        <input class="controls" type="text" name="clave" id="nombres" placeholder="Clave catrastal">
-        <input class="controls" type="text" name="nombre" id="apellidos"
-            placeholder="Ingresa 4 letras del Nombre del Propietario">
-        <input class="botons" type="submit" value="Consultar">
-    </section>
-</body>
-<!-- Botón que activa el contenido de PayPal -->
-<button class="boton">Mostrar PayPal</button>
+    <div class="stepper-steps">
+        <div *ngIf="currentStep === 0" class="step-content">
+            <h2>Consulta de pago</h2>
+            <!-- Formulario para datos del pasajero -->
 
-<!-- Mostrar div PayPal solo cuando 'showPaypal' sea true -->
-<div class="paypal">
-    <div #paypal></div>
+            <body>
+                <section class="form-register">
+                    <h4>Consulta de pago</h4>
+                    <input class="controls" type="text" [(ngModel)]="clave" placeholder="Clave catastral" />
+                    <input class="controls" type="text" [(ngModel)]="nombre"
+                        placeholder="Ingresa 4 letras del Nombre del Propietario" />
+                    <input class="botons" (click)="validateAndProceed()" type="button" value="Consultar">
+                    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+                </section>
+            </body>
+        </div>
+
+        <div *ngIf="currentStep === 1" class="step-content ">
+            <h2>Informacion del pago</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h5>Titular</h5>
+                    <p>Juan guzman</p>
+                </li>
+                <li class="list-group-item">
+                    <h5>Cantidad</h5>
+                    <p>$200.00</p>
+                </li>
+                <li class="list-group-item">
+                    <h5>Periodo</h5>
+                    <p>enero-febrero</p>
+                </li>
+            </ul>
+
+            <button type="button" (click)="previousStep()" class="btn btn-danger"
+                style="margin-right: 1rem;">atras</button>
+            <a class="btn btn-primary" (click)="validateAndProceed()">proceder</a>
+        </div>
+
+        <!-- Step 3: Confirmación y PayPal -->
+        <div *ngIf="currentStep === 2" class="step-content d-flex flex-column align-items-center text-center">
+            <h2>Pago con paypal</h2>
+            <!-- Contenedor de PayPal centrado -->
+            <div class="paypal mb-10" #paypal></div>
+
+            <div class="d-flex justify-content-center w-100">
+                <button type="button" (click)="previousStep()" class="btn btn-danger me-3">Atras</button>
+                <a class="btn btn-primary">Proceder</a>
+            </div>
+        </div>
+    </div>
 </div>

@@ -8,15 +8,15 @@
                 <i class="ri-menu-line"></i>
             </div>
         </div>
-        <ul class="nav__links" id="nav-links">
-            <li><a href="#">Inicio</a></li>
-        </ul>
+
     </nav>
     <div class="container">
         <div class="container__left">
             <h1>Realiza tus pagos de manera segura</h1>
             <div class="container__btn">
-                <button class="boton">Paga ahora</button>
+                <a type="button" class="btn btn-dark" (click)="pagarAhora()" ariaCurrentWhenActive="page">
+                    Paga ahora
+                </a>
             </div>
         </div>
         <div class="container__right">
